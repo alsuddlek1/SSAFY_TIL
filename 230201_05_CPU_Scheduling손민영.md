@@ -42,8 +42,6 @@
 
 ** All other schedulling is preemptive (=강제로 빼앗음) : 선정형
 
-
-
 ### Scheduling Criteria
 
 : Performance Index (= Performance Measure, 성능, 척도)
@@ -56,7 +54,7 @@
   
   - of processes that complete their execution per time unit
 
--  Turnaround time( 소요시간, 반환시간)
+- Turnaround time( 소요시간, 반환시간)
   
   - anount of time to execute a particular process
 
@@ -69,8 +67,6 @@
   - amount of time it takes from when a request was submitted untill the first response is produced, not output(for time-sharing environment)
 
 wait 타임이랑 response 시간 차이점?
-
-
 
 ### Scheduling Algorithms
 
@@ -87,8 +83,6 @@ wait 타임이랑 response 시간 차이점?
 - Multilevel Queue
 
 - Multilevel Feedback Queue
-
-
 
 ### FCFS(First-Come First_Served)
 
@@ -126,13 +120,9 @@ wait 타임이랑 response 시간 차이점?
 
 ![](230201_05_CPU_Scheduling손민영/2023-02-01-21-51-52-image.png)
 
-
-
 ### Exponential Averaging
 
 ![](230201_05_CPU_Scheduling손민영/2023-02-01-21-53-46-image.png)
-
-
 
 ### Priority Scheduling
 
@@ -156,8 +146,6 @@ wait 타임이랑 response 시간 차이점?
   
   - Aging(노화) :  as time progresses incresase the priority of the process
 
-
-
 ### RR (Round Robin)
 
 - 각 프로세스는 동일한 크기의 할당 시간(time quantum)을 가짐 (일반적으로 10-100 milliseconds)
@@ -173,8 +161,6 @@ wait 타임이랑 response 시간 차이점?
   - q large => FCFS
   
   - q small => context swith 오버헤드가 커진다
-  
-  
 
 ### Multilevel Queue
 
@@ -205,8 +191,6 @@ wait 타임이랑 response 시간 차이점?
     - 각 큐에 CPU time을 적절한 비율로 할당
     
     - Eg., 80% to foreground in RR, 20% to background in FCFS
-
-
 
 ### Multilevel Feedback Queue
 
