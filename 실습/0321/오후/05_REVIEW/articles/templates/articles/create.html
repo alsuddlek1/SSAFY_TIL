@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>CREATE PAGE</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  {% comment %} 제목, 내용을입력할 수 있는 입력란 {% endcomment %}
+  {{form.as_p}}
+  <input type="submit">
+</form>
+{% endblock content %}
