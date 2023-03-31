@@ -3,7 +3,7 @@ sys.stdin = open('input.txt')
 
 def dfs(n, sum_v):
     # n : 점원 s의 index
-
+    if ans == 0 : #
 
 T = int(input())
 for tc in range(1, T+1):
