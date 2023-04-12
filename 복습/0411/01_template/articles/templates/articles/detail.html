@@ -9,17 +9,23 @@
   {% endif %}
 
   <div id="article-content">
+    <h3>{{article.pk}}번째 글</h3>
+    
+    <p><b>작성자 : {{article.user}}</b></p>
     <p>글 제목 : {{article.title}}</p>
     <p>글 내용 : {{article.content}}</p>
     <p>생성시각 : {{article.created_at}}</p>
     <p>수정시각 : {{article.updated_at}}</p>
 
     <hr>
+    <!--작성자가 아니면 출력 안함-->
+    {% if request.user == article.user %}
     <a href="{% url 'articles:update' article.pk %}">수정하기</a>
     <form action="{% url 'articles:delete' article.pk %}" id="delete-form">
       {% csrf_token %}
       <input type="submit" value="삭제하기" id="delete-btn" />
     </form><br>
+    {% endif %}
     <hr>
     <a href="{% url 'articles:index' %}">목록보기</a>
   </div>
@@ -32,21 +38,30 @@
   {% endif %}
   <ul>
     {% for comment in comments %}
-      <li>{{comment.content}}</li>
+      <li>
+        {{comment.user}} - {{comment.content}}
+        
+      </li>
       <!--댓글 DELETE-->
+      {% if request.user == comment.user %}
       <form action="{% url 'articles:comments_delete' article.pk comment.pk %}" method="POST">
         {% csrf_token %}
         <input type="submit" value="Delete">
       </form>
+      {% endif %}
     {% empty %}
       <p>댓글 無</p> 
     {% endfor %}
   </ul>
 
   <!--댓글 create-->
+  {% if request.user.is_authenticated %}
   <form action="{% url 'articles:comments_create' article.pk %}" method="POST">
     {% csrf_token %}
     {{comment_form}}
     <input type="submit" value="댓글작성">
   </form>
+  {% else %}
+  <a href="{% url 'accounts:login' %}">로그인하세용!!</a>
+  {% endif %}
 {% endblock content %}
