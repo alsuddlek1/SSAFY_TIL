@@ -4,9 +4,9 @@ from django.shortcuts import render
 from django.http.response import JsonResponse, HttpResponse
 from rest_framework import status
 
-from .models import Article
+from .models import Article, Comment
 from django.core import serializers
-from .serializers import ArticleSerializer
+from .serializers import ArticleSerializer, CommentSerializer
 
 # Create your views here.
 def article_html(request):
@@ -73,3 +73,24 @@ def article_detail(request, article_pk):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
+        
+@api_view(['GET'])
+def comment_list(request):
+    comments = Comment.objects.all()
+    serializers = CommentSerializer(comments, many=True)
+    return Response(serializers.data)
+
+@api_view(['GET'])
+def comment_detail(request, comment_pk):
+    if request.method == 'GET':
+        comment = Comment.objects.get(pk=comment_pk)
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
+    
+@api_view(['POST'])
+def comment_create(request, article_pk):
+    article = Article.objects.get(pk=article_pk)
+    serializer = CommentSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(article=article)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
