@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ person.username }}님의 프로필</h1>
+  <div>
+    <!-- 팔로워 팔로잉 수 비동기 적용-->
+    팔로워 : <span id="followers-count"> {{ person.followers.all|length }}</span>
+    팔로잉 : <span id="followings-count"> {{ person.followings.all|length }}</span>
+  </div>
+
+  {% if request.user != person %}
+  <div>
+      <form id="follow-form" data-user-id="{{ person.pk }}">
+      {% csrf_token %}
+      {% if request.user in person.followers.all %}
+        <input type="submit" value="언팔로우">
+      {% else %}
+        <input type="submit" value="팔로우">
+      {% endif %}
+    </form>
+  <div>
+  {% endif %}
+
+  <h2>{{ person.username }}이 작성한 모든 게시글</h2>
+  {% for article in person.article_set.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+
+  <hr>
+
+  <h2>{{ person.username }}이 작성한 모든 댓글</h2>
+  {% for comment in person.comment_set.all %}
+    <div>{{ comment.content }}</div>
+  {% endfor %}
+
+  <hr>
+
+  <h2>{{ person.username }}이 좋아요 한 모든 게시글</h2>
+  {% for article in person.like_articles.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+
+  <a href="{% url 'articles:index' %}">back</a>
+{% endblock content %}
+
+{% block script %}
+  <!--https://axios-http.com/kr/docs/intro (AXIOS 검색)-->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script >
+    // 지정한 id("follow-form")으로 선택(querySelector)
+    const form = document.querySelector("#follow-form")
+    // hidden 타입으로 숨겨져 있는 csrf 값을 가진 input 태그 선택('django csrftoken' 검색)
+    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+    // form 요소에 이벤트 핸들러(요청이 있을때마다)
+    form.addEventListener('submit', function(event) { 
+      event.preventDefault()
+      // url에 작성할 user pk 
+      const userId = event.target.dataset.userId
+      // axios : 비동기 통신 기능을 제공
+      axios({
+        method : 'post',
+        url : `/accounts/${userId}/follow/`,
+        headers: {'X-CSRFToken': csrftoken}, // ('django csrftoken')
+      })
+      // 성공했을 때
+      .then((response) => {
+        const isFollowed = response.data.is_followed
+        const followBtn = document.querySelector('#follow-form > input[type=submit]') // 버튼토글
+        if (isFollowed === true){ // 팔로우가 되어있으면, 버튼에 '언팔로우'
+          followBtn.value = '언팔로우'
+        } else { // 팔로우가 되어있지 않으면, 버튼에 '팔로우'
+          followBtn.value = '팔로우'
+        }
+        // view에서 응답한 연산 결과 사용해 각 태그의 값 변경
+        const followersCountTag = document.querySelector('#followers-count')
+        const followingsCountTag = document.querySelector('#followings-count')
+        // console.log(response)
+        // : response의 data의 followers_count의 값
+        const followersCount = response.data.followers_count 
+        const followingsCount = response.data.followings_count
+        // followersCountTag에 followersCount의 값으로 나타냄
+        followersCountTag.innerText = followersCount
+        followingsCountTag.innerText = followingsCount
+      })
+      // 실패했을때 (없어도 실행 가능)
+      .catch((error) => {
+        console.log(error.response)
+      })
+    })
+  </script>
+{% endblock script %}

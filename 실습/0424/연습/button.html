@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!--버튼을 클릭하면 특정 변수값 변경하기(버튼누를때마다 +1)-->
+<body>
+  <button id="btn">누르면 +=1 </button>
+  <p id="counter">0</p>
+  <script>
+    //초기값 0으로 설정
+    let countNumber = 0
+
+    // ID가 btn인요소를 선택
+    const btn = document.querySelector('#btn')
+    console.log(btn)
+
+    // btn이 클릭 되었을 때 마다 함수가 실행됨(실행될때마다 버튼클릭 출력)
+    btn.addEventListener('click', function(){
+      console.log('버튼 클릭!')
+
+      // countNumber 증가
+      countNumber += 1
+
+      // id가 counter인 내용을 변경 시킴
+      const counter = document.querySelector('#counter')
+      counter.innerText = countNumber
+    })
+  </script>
+</body>
+</html>
