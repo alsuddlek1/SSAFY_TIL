@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const greeting = (name = 'Ann') => {
+      return `Hi ${name}`
+    }
+    greeting()
+
+    // 매개변수 < 인자
+    const noArgs = () => {
+      return 0
+    }
+    noArgs(1,2,3)
+    // 매개변수 < 인자
+    const twoArgs = (arg1, arg2) => {
+      return [arg1, arg2]
+    }
+    twoArgs(1,2,3)
+
+    // 매개변수 > 인자
+    const threeArgs = (arg1, arg2, arg3) => {
+      return [arg1, arg2, arg3]
+    }
+    threeArgs()
+    threeArgs(1)
+    threeArgs(2,3)
+
+    /////////////////////////////////////
+    // 선언식
+    // sum(1, 2)
+    // function sum(num1, num2) {
+    //   return num1 + num2
+    // }
+
+    // // 표현식
+    // const sub = (num1, num2) => num1 - num2
+    // sub(7,2)
+
+    ///////////////////////////////////////
+    const myFunc = function() {
+      console.log(this)
+    }
+
+    const myObj = {
+      numbers : [1,2],
+      myFunc() {
+        console.log(this)
+        this.numbers.forEach((num) => {
+          console.log(num)
+          console.log(this)
+        })
+      }
+    }
+    //////////////////////////
+    const numbers = [1,2,3]
+    const doubleNumbers = numbers.map((numbers) => {
+      return numbers ** 2
+    })
+
+    const products = [
+      {name: 'cucuber', type: 'vegetable'},
+      {name: 'banana', type: 'fruit'},
+      {name: ' carrot', type: 'vegetable'},
+    ]
+    // 함수정의
+    const fruitFilter = product => {
+      return product.type == 'fruit'
+    }
+    // 콜백으로 넘기기 
+    const fruits = products.filter(fruitFilter)
+    console.log(fruits)
+
+    const tests = [90, 90, 80, 77]
+    const sum = tests.reduce((total, x) => total + x, 0)
+    console.log(sum)
+    const avg = tests.reduce((total, x) => total + x, 0) / tests.length
+    console.log(avg)
+
+    const avengers = [
+      {name : 'Tony', age:45},
+      {name : 'Tony2', age:46},
+      {name : 'Tony3', age:47},
+    ]
+    const avenger = avengers.find((avenger) => {
+      return avenger.name === 'Tony'
+    })
+    console.log(avenger)
+
+    const chars = ['A', 'B', 'C', 'D']
+    console.log('loop')
+    for (let idx = 0; idx < chars.length; idx++){
+      console.log(idx, chars[idx])
+    }
+
+    console.log('of')
+    for (const char of chars) {
+      console.log(char)
+    }
+
+    console.log('forEach')
+    chars.forEach((char, idx) => {
+      console.log(idx, char)
+    })
+    
+    console.log('forEach2')
+    chars.forEach(char => {
+      console.log(char)
+    })
+  </script>
+</body>
+</html>
