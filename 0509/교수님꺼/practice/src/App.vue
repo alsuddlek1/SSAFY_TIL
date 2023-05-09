@@ -1,0 +1,45 @@
+<template>
+  <div id="app">
+    <nav>
+      <router-link :to="{name: 'first'}">First</router-link> |
+      <router-link to="/second">Second</router-link> | 
+      <router-link to="/lunch">Lunch</router-link> |
+      <!-- to="" | html에 속성 넣는 방법 -->
+      <router-link to="/lotto/6">Lotto</router-link>
+      <!-- :to="JS Expression" -->
+      <router-link 
+        :to="{
+            name:'lotto',
+            params: {
+              lottoNum: 6
+            }
+             }">
+          Lotto
+      </router-link>
+    </nav>
+    <router-view/>
+  </div>
+</template>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
