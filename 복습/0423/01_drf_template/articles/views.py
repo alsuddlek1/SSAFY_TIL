@@ -55,7 +55,7 @@ def comment_list(request, article_pk):
 
 @api_view(['GET', 'DELETE', 'PUT'])
 def comment_detail(request, comment_pk):
-    comment = get_list_or_404(Comment, pk=comment_pk)
+    comment = get_object_or_404(Comment, pk=comment_pk)
     if request.method == 'GET':
         serializer = CommentListSerializer(comment)
         return Response(serializer.data)
