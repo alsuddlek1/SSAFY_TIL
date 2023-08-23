@@ -21,10 +21,10 @@ const myPage = () => {
                 설문 현황
             </MypageNavSelect>
             <MypageNavSelect>
-                만든 설문
+                당첨 상품
             </MypageNavSelect>
             <MypageNavSelect>
-                당첨 상품
+                포인트 사용
             </MypageNavSelect>
         </MypageNav>
             <MypageLayout>
