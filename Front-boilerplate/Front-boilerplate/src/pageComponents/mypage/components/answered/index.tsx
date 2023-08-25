@@ -1,8 +1,19 @@
 'use client'
 
+import { AnsweredLayout, AnsweredLine1, AnsweredLine2 } from "./Answered.styled";
+import Card from "@/components/card"
+
+
 const Answered = () => {
     return(
-        <h1>응답한 설문</h1>
+        <AnsweredLayout>
+            <AnsweredLine1>
+                <Card/>
+            </AnsweredLine1>
+            <AnsweredLine1>
+                <Card/>
+            </AnsweredLine1>
+        </AnsweredLayout>
     )
 }
 

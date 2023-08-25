@@ -30,6 +30,10 @@ const MypageInfo = styled.div.attrs<any>((props) => ({}))`
     padding: 10px;
 `
 
+const MypageInfoTitle = styled.div.attrs<any>((props) => ({}))`
+    padding: 10px;
+`
+
 const MypageInput = styled.div.attrs<any>((props) => ({}))`
     display: flex;
 `
@@ -42,5 +46,5 @@ const MypageButton = styled.div.attrs<any>((props) => ({}))`
 `
 
 export {
-    MypageTitle, MypageProfileImg, MypageBody,MypageInfo, MypageInput, MypageButton, Myinfo
+    MypageTitle, MypageProfileImg, MypageBody,MypageInfo, MypageInput, MypageButton, Myinfo, MypageInfoTitle
 }

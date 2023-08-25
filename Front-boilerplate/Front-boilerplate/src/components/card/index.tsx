@@ -1,10 +1,18 @@
 import React from "react";
-import { StyledCard } from "./Card.styled"
+import { StyledCard, CardTitle, CardBody, CardImg } from "./Card.styled"
+import Image from "next/image";
 
 
 const CardComponent = (props:any) => {
     return (
-        <StyledCard>{props.title}</StyledCard>
+        <StyledCard {...props}>
+            <CardBody>
+                <CardImg src={props.img} />
+            </CardBody>
+            <CardTitle {...props}>
+                {props.title}
+            </CardTitle>
+        </StyledCard>
     )
 };
 

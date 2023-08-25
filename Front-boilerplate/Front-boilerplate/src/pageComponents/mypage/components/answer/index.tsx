@@ -1,10 +1,10 @@
 'use client'
 
-import {Answer, AnswerProfile, AnswerProfileImg, AnswerProfileBody, AnswerProfileText, AnswerProfileTextBox, AnswerBody, AnswerBodySlect, AnswerBodyInfo, AnswerBodySlectBox } from "./Answer.styled"
-import Image from "next/image"
+import {Answer, AnswerBody, AnswerBodySlect, AnswerBodyInfo, AnswerBodySlectBox, AnswerBodyLayout } from "./Answer.styled"
 import Answered from "../answered"
 import Made from "../made"
 import {useState} from 'react'
+import Profile from '../profile'
 
 
 const answer = () => {
@@ -12,34 +12,8 @@ const answer = () => {
 
     return(
         <Answer>
-        <AnswerProfile>
-            <AnswerProfileImg>
-                <Image src="/cow.jpg" width={100} height={100} alt="answerImg"></Image>
-            </AnswerProfileImg>
-            <AnswerProfileBody>
-                <AnswerProfileTextBox>
-                    <AnswerProfileText>
-                        김설문조사
-                    </AnswerProfileText>
-                    <AnswerProfileText>
-                        김설문/1999-02-10/남자
-                    </AnswerProfileText>
-                </AnswerProfileTextBox>
-                <AnswerProfileTextBox>
-                    <AnswerProfileText>
-                        응답한 설문 : 100
-                    </AnswerProfileText>
-                    <AnswerProfileText>
-                        만든 설문 : 5
-                    </AnswerProfileText>
-                    <AnswerProfileText>
-                        당첨된 상품 : 10
-                    </AnswerProfileText>
-                </AnswerProfileTextBox>
-            </AnswerProfileBody>
-        </AnswerProfile>
-        <div>
-
+            <Profile/>
+        <AnswerBodyLayout>
         <AnswerBody>
             <AnswerBodySlectBox>
                 <AnswerBodySlect stateName={state} name="answered" onClick={() => setState("answered")}>
@@ -54,7 +28,7 @@ const answer = () => {
                 {state === "made" && <Made/>}
             </AnswerBodyInfo>
         </AnswerBody>
-        </div>
+        </AnswerBodyLayout>
         </Answer>
     )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import {Myinfo, MypageTitle, MypageProfileImg, MypageBody, MypageInfo , MypageInput, MypageButton} from "./Myinfo.styled"
+import {Myinfo, MypageTitle, MypageProfileImg, MypageBody, MypageInfo , MypageInput, MypageButton, MypageInfoTitle} from "./Myinfo.styled"
 import Input from '@/components/input'
 import Button from '@/components/button'
 import Image from "next/image"
@@ -17,13 +17,17 @@ const myinfo = () => {
             </MypageProfileImg>
             <MypageBody>
                 <MypageInfo>
-                    <h3>이메일</h3>
+                    <MypageInfoTitle>
+                        <h3>이메일</h3>
+                    </MypageInfoTitle>
                     <MypageInput>
                         <Input use='mypage' placeholder='이메일을 입력하세요'></Input>
                     </MypageInput>
                 </MypageInfo>
                 <MypageInfo>
-                    <h3>생일</h3>
+                    <MypageInfoTitle>
+                        <h3>생일</h3>
+                    </MypageInfoTitle>
                     <MypageInput>
                         <Input placeholder='년도' type='number' use='mypage'></Input>
                         <Input placeholder='월' type='number' use='mypage'></Input>
@@ -31,13 +35,17 @@ const myinfo = () => {
                     </MypageInput>
                 </MypageInfo>
                 <MypageInfo>
-                    <h3>닉네임</h3>
+                    <MypageInfoTitle>
+                        <h3>닉네임</h3>
+                    </MypageInfoTitle>
                     <MypageInput>
                         <Input placeholder='닉네임을 입력하세요' use='mypage'></Input>
                     </MypageInput>
                 </MypageInfo>
                 <MypageInfo>
-                    <h3>성별</h3>
+                    <MypageInfoTitle>
+                        <h3>성별</h3>
+                    </MypageInfoTitle>
                     <MypageInput>
                         <Input placeholder='성별을 입력하세요' use='mypage'></Input>
                     </MypageInput>

@@ -1,4 +1,3 @@
-"use client";
 import styled from "styled-components";
 
 const LoginLayout = styled.form<any>`

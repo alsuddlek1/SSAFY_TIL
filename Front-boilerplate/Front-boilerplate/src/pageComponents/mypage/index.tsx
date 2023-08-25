@@ -5,6 +5,7 @@
 import {Mypage, MypageNav, MypageNavSelect, MypageLayout} from './Mypage.styled'
 import Myinfo from './components/myinfo'
 import Answer from './components/answer'
+import Giveway from './components/giveaway'
 import { useState } from 'react'
 
 
@@ -20,7 +21,7 @@ const myPage = () => {
             <MypageNavSelect onClick={() => setState("answer")}>
                 설문 현황
             </MypageNavSelect>
-            <MypageNavSelect>
+            <MypageNavSelect onClick={() => setState("giveway")}>
                 당첨 상품
             </MypageNavSelect>
             <MypageNavSelect>
@@ -31,6 +32,7 @@ const myPage = () => {
 
             {state === 'myinfo' && <Myinfo/>}
             {state === 'answer' && <Answer/>}
+            {state === 'giveway' && <Giveway/>}
             </MypageLayout>
             
         </Mypage>
