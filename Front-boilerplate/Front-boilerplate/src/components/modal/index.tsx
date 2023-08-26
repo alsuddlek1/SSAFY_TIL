@@ -6,7 +6,7 @@ const modal = (props:any) => {
     return (
         <Modal onClick={props.closeModal} >
             <ModalWindow>
-                헤헤
+                상품정보
             </ModalWindow>
         </Modal>
     )
