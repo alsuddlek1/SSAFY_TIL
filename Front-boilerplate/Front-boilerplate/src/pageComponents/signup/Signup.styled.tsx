@@ -8,10 +8,14 @@ const SignUpPage = styled.div.attrs<any>((props) => ({}))`
     border-radius: 5px;
 `
 
+const SignupBirth = styled.div.attrs<any>((props) => ({}))`
+    display: flex;
+`
+
 const ButtonDiv = styled.div.attrs<any>((props) => ({}))`
     margin-top: 10px;
 `
 
 export {
-    SignUpPage, ButtonDiv
+    SignUpPage, ButtonDiv, SignupBirth
 }

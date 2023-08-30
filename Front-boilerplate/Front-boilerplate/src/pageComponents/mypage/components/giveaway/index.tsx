@@ -22,7 +22,7 @@ const giveway = () => {
             <Profile/>
             <GiveBodyLayout>
                 <GiveTitle>
-                    당첨된 선물
+                    당첨된 상품
                 </GiveTitle>
                 <GiveBody>
                     <GiveCard>

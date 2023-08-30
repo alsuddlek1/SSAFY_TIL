@@ -50,6 +50,14 @@ const StyledInput = styled.input.attrs<InputStyles>((props) => ({
         margin-left : 10px;
         margin-right : 10px;
       `,
+      signup: `
+        width: 60px;
+        border: solid 1.3px black;
+        &:focus {
+          outline: none;
+          border: solid 2px black;
+        } 
+      `
     };
 
     return css`

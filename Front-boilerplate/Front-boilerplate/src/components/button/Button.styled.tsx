@@ -44,6 +44,21 @@ const StyledButton = styled.button.attrs<ButtonStyles>((props) => ({}))`
         color: #666666;
         cursor: not-allowed;
       `,
+
+      save: `
+        width : 50px;
+        height : 30px;
+        background-color : #0059ff;
+        color : #ffffff;
+        margin : 5px;
+      `,
+      share : `
+        width : 50px;
+        height : 30px;
+        background-color : #fbff00;
+        color : #000000;
+        margin : 5px;
+      `
     };
 
 

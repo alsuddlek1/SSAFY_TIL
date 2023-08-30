@@ -1,13 +1,15 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { LoginLayout } from "./Login.layout";
 import Button from "@/components/button";
 import Input from "@/components/input";
 import useLoginStore from "@/stores/useLoginStore";
 import { useInputHook } from "@/hooks/useInputHook";
+import useUserStore from "@/stores/useUserStore";
 
 const Login = () => {
+  const userInfo = useUserStore((state:any) => state.user)
   const router = useRouter();
   const loginState = useLoginStore((state: any) => state.login);
 
@@ -23,7 +25,9 @@ const Login = () => {
     router.push("/");
     console.log("submit email : " + email + " / password: " + password);
   };
-
+  useEffect(() => {
+    console.log(userInfo)
+}, [userInfo])
   return (
     <>
       <LoginLayout onSubmit={onSubmit}>

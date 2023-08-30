@@ -45,7 +45,7 @@ ${(props) => {
 
         const UseStyled : any = {
             basic : `
-                border : solid 1.3px black;
+                border-top : solid 1.3px black;
             `,
             giveway : `
                 background-color : #ffffff;
