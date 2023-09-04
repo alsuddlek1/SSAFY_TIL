@@ -67,7 +67,7 @@ export default function CustomGlobe() {
 
   return (
     <Globe
-      // globeImageUrl="lunar_surface.jpg"
+      globeImageUrl="lunar_surface.jpg"
       ref={globeEl}
       backgroundColor="#000000"
       labelsData={[selectedCountry]}
