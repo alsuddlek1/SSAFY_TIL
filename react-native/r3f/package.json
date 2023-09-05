@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
+    "@expo/webpack-config": "^19.0.0",
+    "@react-three/drei": "^9.82.0",
     "@react-three/fiber": "^8.13.9",
     "expo": "~49.0.8",
     "expo-asset": "^8.10.1",
@@ -17,10 +19,12 @@
     "expo-gl": "^13.0.1",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
+    "react-globe.gl": "^2.24.3",
     "react-native": "0.72.4",
     "react-native-paper": "^5.10.3",
+    "react-native-web": "~0.19.6",
     "three": "^0.156.0",
-    "react-native-web": "~0.19.6"
+    "undefined": "@react-three/drei/native"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
