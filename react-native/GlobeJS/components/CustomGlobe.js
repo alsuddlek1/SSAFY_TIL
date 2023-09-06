@@ -8,7 +8,6 @@ import { View } from "react-native";
 const CustomGlobe = () => {
     const refMesh = useRef()
     return(
-        <View>
         <Canvas>
         <>
             <directionalLight position={[1, 1, 1]} />
@@ -21,7 +20,6 @@ const CustomGlobe = () => {
             </mesh>
         </>
         </Canvas>
-        </View>
     )
 }
 
