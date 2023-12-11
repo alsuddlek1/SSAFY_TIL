@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<!--input에 입력하면 입력 값을 실시간으로 출력하고, 버튼을 클릭하면 출력된 값으리 클래스를 토글하기-->
+<body>
+  <h1></h1>
+  <button id="btn">클릭</button>
+  <input type="text">
+
+  <script>
+    const btn = document.querySelector('#btn')
+    //btn 이 클릭되면 함수 실행
+    btn.addEventListener('click', function(){
+      // h1 태그를 선택
+      const h1 = document.querySelector('h1')
+      //
+      h1.classList.toggle('blue')
+      console.log('클릭!')
+    })
+
+    //input
+    const input = document.querySelector('input')
+    //input에 값이 입력되면 함수 실행
+    input.addEventListener('input', function(event){
+      // h1 태그 선택해서
+      const h1Tag = document.querySelector('h1')
+      // input 값을 태그의 컨텐츠로 채우기 => 글자 칠때마다 h1에 글자 생김
+      h1Tag.innerText = event.target.value
+      // 한글자 칠때마다 되나출력 : 왜냐하면 한글자 칠때마다 함수 실행되기 때문
+      console.log('되나?')
+    })
+  </script>
+
+</body>
+</html>

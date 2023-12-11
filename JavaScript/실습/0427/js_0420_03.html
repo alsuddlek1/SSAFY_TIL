@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <h1 id="title">DOM 조작</h1>
+  <p class="text">querySelector</p>
+  <p class="text">querySelectorAll</p>
+  <ul> <li>Javascript</li></ul>
+  <ul> <li>python</li></ul> -->
+  <!-- <div></div> -->
+  <script>
+    // console.log(document.querySelector('#title'))
+    // console.log(document.querySelectorAll('.text'))
+    // console.log(document.querySelector('.text'))
+    // console.log(document.querySelectorAll('body > ul > li'))
+
+    const title = document.createElement('h1')
+    title.innerText = 'DOM 조작'
+    const body = document.querySelector('body')
+    body.appendChild(title)
+    
+  </script>
+</body>
+</html>
