@@ -1,0 +1,27 @@
+.header {
+    height: 100px;
+    background-color: palevioletred
+
+}
+
+.section-left {
+    height: 500px;
+    background-color: pink;
+    width: 30%;
+}
+
+.section-right {
+    height: 500px;
+    background-color: rgb(218, 182, 188);
+    width: 70%
+}
+
+.footer {
+    height: 100px;
+    background-color: rgb(223, 33, 96);
+    clear : both;
+}
+
+.left {
+    float: left;
+}
