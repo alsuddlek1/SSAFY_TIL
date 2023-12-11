@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>CREATE</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% comment %} form 자동생성 {% endcomment %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+<br>
+<a href="{% url 'movies:index' %}">BACK</a>
+{% endblock content %}

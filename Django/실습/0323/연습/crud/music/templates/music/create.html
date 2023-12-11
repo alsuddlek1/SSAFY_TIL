@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>create page</h1>
+<hr>
+
+<form action="{% url 'music:create' %}" method='POST'>
+  {% csrf_token %}
+  {{form.as_p}}
+</form>
+{% endblock content %}
