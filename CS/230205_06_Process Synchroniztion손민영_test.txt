@@ -1,0 +1,10 @@
+Chaper 6. Process Synchroniztion(프로세스 동기화) Concurrency Control(병행 제어)
+
+1. indefinite blocking 프로세스가 suspend된 이유에 해당하는 세마포어 큐에서 빠져나갈 수 없는 현상은?
+
+
+2. Semaphore의 문제점으로 옳은 것의 개수는?
+ㄱ. 코딩하기 힘들다.
+ㄴ. 정확성의 입증이 어렵다.
+ㄷ. 자발적 협력이 필요하다.
+ㄹ. 한번의 실수가 모든 시스템에 치명적 영향을 끼친다.
